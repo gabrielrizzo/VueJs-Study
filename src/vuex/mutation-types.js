@@ -1,0 +1,5 @@
+export const SIGN_IN ='SIGN_IN'
+export const SIGN_OUT = 'SIGN_OUT'
+export const SET_EVENTS = 'SET_EVENTS'
+export const SET_TITLE ='SET_TITLE'
+export const DELETE_EVENT = 'DELETE_EVENT'
