@@ -1,6 +1,7 @@
 <template>
+
   <div class="col-sm-3">
-    <md-card>
+    <md-card class="md-elevation-13">
       <md-card-area md-inset>
         <md-card-media md-ratio="16:9">
             <img src="../images/house.jpg" alt="Coffee House">

@@ -15,5 +15,12 @@ export const mutations = {
   },
   [types.DELETE_EVENT] (state, index) {
     state.events.splice(index,1)
+  },
+  [types.SET_MUSIC] (state,music_payload) {
+    state.musics.push(music_payload)
+  },
+  [types.SET_ALL_MUSIC] (state, music_payload) {
+      state.musics=music_payload
   }
+
 }

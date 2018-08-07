@@ -6,6 +6,7 @@ import Signin from './components/SigninComponent.vue'
 import Signup from './components/SignupComponent.vue'
 import AddEvent from './components/AddEventComponent.vue'
 import EventLoopComponent from './components/EventLoopComponent.vue'
+import MusicComponent from './components/MusicComponent'
 import MaterialComponent from './components/MaterialComponent.vue'
 import {firebaseApp} from './firebaseApp'
 import Vuex from 'vuex'
@@ -30,7 +31,8 @@ const router = new VueRouter({
     {path: '/signup', component: Signup},
     {path: '/addevent', component:AddEvent},
     {path:'/material', component:MaterialComponent},
-    {path: '/event', component:EventLoopComponent}
+    {path: '/event', component:EventLoopComponent},
+    {path:'/music', component:MusicComponent}
   ]
 })
 

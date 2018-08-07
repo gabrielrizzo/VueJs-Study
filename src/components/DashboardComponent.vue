@@ -8,7 +8,7 @@
     <add-event-component></add-event-component>
     <hr>
     <div class="row">
-        <event-item-component v-for="(event_item, index) in getEvents" :event="event_item" :index="index" key="index"></event-item-component>
+        <event-item-component v-for="(event_item, index) in getEvents" :event="event_item" :index="index" :key="index"></event-item-component>
     </div>
     <hr>
   </div>

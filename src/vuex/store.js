@@ -11,7 +11,8 @@ const state = {
 
   },
   events: [],
-  title:'Test'
+  title:'Test',
+  musics: []
 }
 
 

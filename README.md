@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+> Code based in David Katz's Vue course, for study
+> His user @ Udemy.com https://www.udemy.com/user/54cd8dd54e49b/
+
+
 ## Build Setup
 
 ``` bash
