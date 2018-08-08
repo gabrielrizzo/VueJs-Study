@@ -14,7 +14,7 @@
         <md-menu md-direction="bottom-start">
           <md-button class="md-icon-button" md-menu-trigger><md-icon>more_vert</md-icon></md-button>
           <md-menu-content>
-              <md-menu-item @click="">Profile</md-menu-item>
+              <md-menu-item :to="'profile/'+userEmail">Profile</md-menu-item>
               <md-menu-item @click="signout">SignOut</md-menu-item>
           </md-menu-content>
         </md-menu>
@@ -25,14 +25,15 @@
 </template>
 
 <script>
-  import {mapActions} from 'vuex'
+  import {mapActions, mapGetters} from 'vuex'
   export default {
     data() {
       return {
         path: this.$router.currentRoute
       }
     },
-    methods: mapActions({signout:'signOut'})
+    methods: mapActions({signout:'signOut'}),
+    computed: mapGetters({userEmail:'getUserEmail'})
   }
 </script>
 
