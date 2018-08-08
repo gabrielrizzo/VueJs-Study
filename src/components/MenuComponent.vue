@@ -7,7 +7,7 @@
             <md-tab id="tab-dashboard" md-label="Dashboard" to="/dashboard"></md-tab>
             <md-tab id="tab-material" md-label="Material" to="/material"></md-tab>
             <md-tab id="tab-event" md-label="Events" to="/event"></md-tab>
-            <md-tab id="tab-favorites" md-label="Add Music" to="/music"></md-tab>
+            <md-tab id="tab-favorites" md-label="Music" to="/music"></md-tab>
           </md-tabs>
       </div>
       <div class="">

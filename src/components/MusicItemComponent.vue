@@ -1,6 +1,6 @@
 <template>
   <div class="col-sm-3 music_card">
-    <md-card>
+    <md-card class="md-elevation-13">
       <md-card-media-cover>
         <md-card-media md-ratio="16:9">
           <img src="../images/skyscraper.jpg" alt="Skyscraper">
@@ -23,6 +23,9 @@
             </md-button>
             <md-button class="md-icon-button">
               <md-icon>share</md-icon>
+            </md-button>
+            <md-button class="md-icon-button">
+              <md-icon>delete</md-icon>
             </md-button>
           </md-card-actions>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div v-for="(event_item, index) in getEvents" class="col-sm-3">
-      <md-card>
+      <md-card class="md-elevation-13">
         <md-card-area md-inset>
           <md-card-media md-ratio="16:9">
               <img src="../images/house.jpg" alt="Coffee House">
@@ -41,7 +41,7 @@
                 <md-button class="md-icon-button" @click="delEvent(index,event_item.id)">
                   <md-icon>delete</md-icon>
                 </md-button>
-              </md-card-actions> 
+              </md-card-actions>
             </div>
           </md-card-area>
         </md-card>
