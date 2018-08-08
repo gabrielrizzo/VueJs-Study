@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <menu-component v-if="! (Object.keys(getUser).length === 0 && getUser.constructor === Object)"></menu-component>
+    <menu-component v-if="(!(Object.keys(getUser).length === 0 && getUser.constructor === Object)) && (path != '/')"></menu-component>
     <router-view></router-view>
   </div>
 </template>
@@ -13,6 +13,14 @@ import {mapGetters} from 'vuex'
       components: {
         MenuComponent
       },
-      computed: mapGetters(['getUser'])
+      data(){
+        return {
+          path:this.$router.currentRoute.path
+        }
+      },
+      computed: mapGetters(['getUser']),
+      mounted(){
+        console.log(this.$router.currentRoute.path)
+    }
   }
 </script>
