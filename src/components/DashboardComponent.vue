@@ -2,7 +2,7 @@
   <div class="content">
     <h3> Events Dashboard </h3>
     <router-link to="/material">Material</router-link>
-    <button class="btn btn-danger btn-sm signout-btn" @click="signOut">Sign Out </button>
+    <!--<button class="btn btn-danger btn-sm signout-btn" @click="signOut">Sign Out </button> moved to menu-->
     <h4>Hello {{getUserEmail}}, good {{salutation()}}</h4>
     <hr>
     <add-event-component></add-event-component>

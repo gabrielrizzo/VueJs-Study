@@ -7,6 +7,7 @@ export const signIn = ({commit}, user_payload) => {
 
 export const signOut = ({commit}) => {
   commit(types.SIGN_OUT)
+  firebaseApp.auth().signOut()
 }
 
 export const setEvent = ({commit}, events_payload) => {
