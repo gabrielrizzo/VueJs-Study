@@ -45,19 +45,7 @@
       </div>
     </md-card-area>
   </md-card>
-  <md-dialog-confirm
-    :md-active.sync="active"
-    :md-title="'Do you want to share '+event.title+'?'"
-    md-content="Just a test, it will not share in your social media"
-    md-confirm-text="Share"
-    md-cancel-text="Cancel"
-    @md-cancel="onCancel"
-    @md-confirm="onConfirm"/>
-
-    <md-snackbar md-position="center" md-duration="3000" :md-active.sync="showSnackbar" md-persistent>
-      <span>{{message}}</span>
-      <md-button class="md-primary" @click="showSnackbar = false">Dismiss</md-button>
-    </md-snackbar>
+  <share-dialog-component :active.sync="active" :event="event"></share-dialog-component>
 </div>
 
 </template>
@@ -66,15 +54,18 @@
 
 import {mapActions} from 'vuex'
 import store from '../vuex/store'
+import ShareDialogComponent from './ShareDialogComponent'
 export default {
   data() {
     return {
       active: false,
-      confirm: null,
+      //confirm: null,
       message: null,
-      showSnackbar:false
+      showSnackbar:false,
+      duration:3000
     }
   },
+  components:{ShareDialogComponent},
   props: ['event','index'],
   methods: mapActions({deleteEvent:'deleteEvent'}),
   methods: {
@@ -83,17 +74,6 @@ export default {
       array.push(index)
       array.push(id)
       store.dispatch('deleteEvent',{index: array[0],id: array[1]})
-    },
-    onCancel() {
-      this.confirm = 'Disagreed'
-      this.message = 'Share cancelled'
-      this.showSnackbar = true
-
-    },
-    onConfirm() {
-      this.confirm = 'Agreed'
-      this.message = 'Sharing Event...'
-      this.showSnackbar = true
     }
   }
 }

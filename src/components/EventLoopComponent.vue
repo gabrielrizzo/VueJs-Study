@@ -35,7 +35,7 @@
                 <md-button class="md-icon-button">
                   <md-icon>favorite</md-icon>
                 </md-button>
-                <md-button class="md-icon-button">
+                <md-button class="md-icon-button" @click="active = true">
                   <md-icon>share</md-icon>
                 </md-button>
                 <md-button class="md-icon-button" @click="delEvent(index,event_item.id)">
@@ -45,8 +45,22 @@
             </div>
           </md-card-area>
         </md-card>
+        <md-dialog-confirm
+          :md-active.sync="active"
+          :md-title="'Do you want to share '+event_item.title+'?'"
+          md-content="Just a test, it will not share in your social media"
+          md-confirm-text="Share"
+          md-cancel-text="Cancel"
+          @md-cancel="onCancel"
+          @md-confirm="onConfirm"/>
+
+          <md-snackbar md-position="center" :md-duration="duration" :md-active.sync="showSnackbar" md-persistent>
+            <span>{{message}}</span>
+            <md-button class="md-primary" @click="showSnackbar = false">Dismiss</md-button>
+          </md-snackbar>
       </div>
     </div>
+
 
 </template>
 
@@ -55,6 +69,15 @@ import {firebaseApp, eventsRef} from '../firebaseApp'
 import {mapActions, mapGetters} from 'vuex'
 import store from '../vuex/store'
 export default {
+  data() {
+    return {
+      active: false,
+      confirm: null,
+      message: null,
+      showSnackbar:false,
+      duration:3000
+    }
+  },
   props: ['event','index'],
   methods: mapActions({deleteEvent:'deleteEvent'}),
   computed: mapGetters(['getEvents']),
@@ -64,6 +87,17 @@ export default {
       array.push(index)
       array.push(id)
       store.dispatch('deleteEvent',{index: array[0],id: array[1]})
+    },
+    onCancel() {
+      this.confirm = 'Disagreed'
+      this.message = 'Share cancelled'
+      this.showSnackbar = true
+
+    },
+    onConfirm() {
+      this.confirm = 'Agreed'
+      this.message = 'Sharing Event...'
+      this.showSnackbar = true
     }
   },
   mounted() {
