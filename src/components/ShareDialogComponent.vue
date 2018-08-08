@@ -2,7 +2,7 @@
   <div>
     <md-dialog-confirm
       :md-active="active"
-      :md-title="'Do you want to share '+event.title+'?'"
+      :md-title="'Do you want to share '+obj.title+'?'"
       md-content="Just a test, it will not share in your social media"
       md-confirm-text="Share"
       md-cancel-text="Cancel"
@@ -25,7 +25,7 @@
         message:null
       }
     },
-    props: ['active','event'],
+    props: ['active','obj'],
     methods: {
       onCancel() {
         this.confirm = 'Disagreed'
@@ -36,7 +36,7 @@
       },
       onConfirm() {
         this.confirm = 'Agreed'
-        this.message = 'Sharing Event...'
+        this.message = 'Sharing...'
         this.showSnackbar = true
         this.$emit('update:active',false) //Using sync at father component, to update the "active" value
       },

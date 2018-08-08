@@ -45,7 +45,7 @@
       </div>
     </md-card-area>
   </md-card>
-  <share-dialog-component :active.sync="active" :event="event"></share-dialog-component>
+  <share-dialog-component :active.sync="active" :obj="event"></share-dialog-component>
 </div>
 
 </template>
