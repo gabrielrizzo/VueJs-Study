@@ -42,3 +42,9 @@ export const setAllMusic = ({commit}, music_payload) => {
   })
 
 }
+
+export const deleteMusic = ({commit},{index,id}) => {
+  console.log(index)
+  firebaseApp.database().ref().child('musics').child(id).remove()
+  commit(types.DELETE_MUSIC, index)
+}

@@ -21,6 +21,9 @@ export const mutations = {
   },
   [types.SET_ALL_MUSIC] (state, music_payload) {
       state.musics=music_payload
+  },
+  [types.DELETE_MUSIC] (state, index) {
+    state.musics.splice(index,1)
   }
 
 }

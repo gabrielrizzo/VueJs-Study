@@ -24,7 +24,7 @@
             <md-button class="md-icon-button">
               <md-icon>share</md-icon>
             </md-button>
-            <md-button class="md-icon-button">
+            <md-button class="md-icon-button" @click="delMusic(index,music.id)">
               <md-icon>delete</md-icon>
             </md-button>
           </md-card-actions>
@@ -47,12 +47,23 @@
 </template>
 
 <script>
+  import {mapActions} from 'vuex'
   export default {
     data() {
       return {
 
       }
     },
-    props:['music']
+    props:['music','index'],
+    methods: mapActions(['deleteMusic']),
+    methods: {
+      delMusic(index,id) {
+        
+        let array = new Array();
+        array.push(index)
+        array.push(id)
+        this.$store.dispatch('deleteMusic',{index: array[0],id: array[1]})
+      }
+    }
   }
 </script>
